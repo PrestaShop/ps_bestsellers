@@ -1,7 +1,7 @@
 {
-  "name": "prestashop/blockbestsellers",
-  "description": "PrestaShop module blockbestsellers",
-  "homepage": "https://github.com/PrestaShop/blockbestsellers",
+  "name": "prestashop/ps_bestsellers",
+  "description": "PrestaShop - Best Sellers",
+  "homepage": "https://github.com/PrestaShop/ps_bestsellers",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [
     {
@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=5.3.2"
+    "php": ">=5.4.0"
   },
   "config": {
     "preferred-install": "dist"
