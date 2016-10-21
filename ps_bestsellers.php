@@ -52,8 +52,8 @@ class Ps_BestSellers extends Module implements WidgetInterface
         $this->bootstrap = true;
         parent::__construct();
 
-		$this->displayName = $this->getTranslator()->trans('Top-sellers block', array(), 'Module.BestSellers.Admin');
-		$this->description = $this->getTranslator()->trans('Adds a block displaying your store\'s top-selling products.', array(), 'Module.BestSellers.Admin');
+		$this->displayName = $this->getTranslator()->trans('Top-sellers block', array(), 'Module.Bestsellers.Admin');
+		$this->description = $this->getTranslator()->trans('Adds a block displaying your store\'s top-selling products.', array(), 'Module.Bestsellers.Admin');
 	}
 
 	public function install()
@@ -221,7 +221,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         if (!empty(self::$cache_best_sellers)) {
             return self::$cache_best_sellers;
         }
-        
+
         $context = Context::getContext();
 
         Context::getContext();
