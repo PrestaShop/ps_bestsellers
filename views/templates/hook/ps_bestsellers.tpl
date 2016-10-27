@@ -19,16 +19,15 @@
 *
 *  @author PrestaShop SA <contact@prestashop.com>
 *  @copyright  2007-2016 PrestaShop SA
-
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
 <section>
-  <h1>{l s='Best Sellers' d='Modules.BestSellers.Shop'}</h1>
-  <div>
-    {foreach from=$products item="product"}
-      {include file="catalog/_partials/miniatures/product.tpl" product=$product}
-    {/foreach}
-  </div>
+    <h1>{l s='Best Sellers' d='Modules.BestSellers.Shop'}</h1>
+    <div class="products">
+        {foreach from=$products item="product"}
+              {include file="catalog/_partials/miniatures/product.tpl" product=$product}
+        {/foreach}
+    </div>
 </section>
