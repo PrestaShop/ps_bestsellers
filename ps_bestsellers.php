@@ -57,8 +57,8 @@ class Ps_BestSellers extends Module implements WidgetInterface
         $this->bootstrap = true;
         parent::__construct();
 
-        $this->displayName = $this->trans('Top-sellers block', array(), 'Module.Bestsellers.Admin');
-        $this->description = $this->trans('Adds a block displaying your store\'s top-selling products.', array(), 'Module.Bestsellers.Admin');
+        $this->displayName = $this->trans('Top-sellers block', array(), 'Modules.Bestsellers.Admin');
+        $this->description = $this->trans('Adds a block displaying your store\'s top-selling products.', array(), 'Modules.Bestsellers.Admin');
 
         $this->templateFile = 'module:ps_bestsellers/views/templates/hook/ps_bestsellers.tpl';
     }
@@ -122,7 +122,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         if (Tools::isSubmit('submitBestSellers')) {
             Configuration::updateValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', (int)Tools::getValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY'));
             $this->_clearCache('*');
-            $output .= $this->displayConfirmation($this->trans('Settings updated', array(), 'Module.Bestsellers.Admin'));
+            $output .= $this->displayConfirmation($this->trans('The settings have been updated.', array(), 'Admin.Notifications.Success'));
         }
 
         return $output.$this->renderForm();
@@ -139,9 +139,9 @@ class Ps_BestSellers extends Module implements WidgetInterface
                 'input' => array(
                     array(
                         'type' => 'text',
-                        'label' => $this->trans('Products to display', array(), 'Modules.BestSellers.Admin'),
+                        'label' => $this->trans('Products to display', array(), 'Modules.Bestsellers.Admin'),
                         'name' => 'PS_BLOCK_BESTSELLERS_TO_DISPLAY',
-                        'desc' => $this->trans('Determine the number of product to display in this block', array(), 'Modules.BestSellers.Admin'),
+                        'desc' => $this->trans('Determine the number of product to display in this block', array(), 'Modules.Bestsellers.Admin'),
                         'class' => 'fixed-width-xs',
                     ),
                 ),

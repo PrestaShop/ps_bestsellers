@@ -23,11 +23,11 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <section>
-    <h1>{l s='Best Sellers' d='Modules.BestSellers.Shop'}</h1>
+    <h1>{l s='Best Sellers' d='Modules.Bestsellers.Shop'}</h1>
     <div class="products">
         {foreach from=$products item="product"}
             {include file="catalog/_partials/miniatures/product.tpl" product=$product}
         {/foreach}
     </div>
-    <a href="{$allBestSellers}">{l s='All best sellers' d='Modules.BestSellers.Shop'}</a>
+    <a href="{$allBestSellers}">{l s='All best sellers' d='Modules.Bestsellers.Shop'}</a>
 </section>
