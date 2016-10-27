@@ -46,7 +46,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
     {
         $this->name = 'ps_bestsellers';
         $this->author = 'PrestaShop';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = [
