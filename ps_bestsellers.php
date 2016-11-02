@@ -199,7 +199,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
 
         if (!empty($products)) {
             return array(
-                'products' => $this->getBestSellers(),
+                'products' => $products,
                 'allBestSellers' => Context::getContext()->link->getPageLink('best-sales'),
             );
         }
