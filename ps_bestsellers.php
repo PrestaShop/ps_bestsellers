@@ -69,7 +69,6 @@ class Ps_BestSellers extends Module implements WidgetInterface
 
         return parent::install()
             && Configuration::updateValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', 8)
-            && $this->registerHook('displayRightColumn')
             && $this->registerHook('actionOrderStatusPostUpdate')
             && $this->registerHook('actionProductAdd')
             && $this->registerHook('actionProductUpdate')
