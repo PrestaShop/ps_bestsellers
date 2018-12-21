@@ -118,7 +118,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
     {
         $output = '';
         if (Tools::isSubmit('submitBestSellers')) {
-            Configuration::updateValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', (int)Tools::getValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY'));
+            Configuration::updateValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', (int) Tools::getValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY'));
             $this->_clearCache('*');
             $output .= $this->displayConfirmation($this->trans('The settings have been updated.', [], 'Admin.Notifications.Success'));
         }
@@ -149,7 +149,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
             ]
         ];
 
-        $lang = new Language((int)Configuration::get('PS_LANG_DEFAULT'));
+        $lang = new Language((int) Configuration::get('PS_LANG_DEFAULT'));
 
         $helper = new HelperForm();
         $helper->show_toolbar = false;
@@ -172,7 +172,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
     public function getConfigFieldsValues()
     {
         return [
-            'PS_BLOCK_BESTSELLERS_TO_DISPLAY' => (int)Tools::getValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY')),
+            'PS_BLOCK_BESTSELLERS_TO_DISPLAY' => (int) Tools::getValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY')),
         ];
     }
 
