@@ -34,7 +34,7 @@ use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchContext;
 use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchQuery;
 use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
 
-if (!defined('_PS_VERSION_')) {
+if ( ! defined('_PS_VERSION_')) {
     exit;
 }
 
@@ -81,8 +81,8 @@ class Ps_BestSellers extends Module implements WidgetInterface
     {
         $this->_clearCache('*');
 
-        if (!parent::uninstall() ||
-            !Configuration::deleteByName('PS_BLOCK_BESTSELLERS_TO_DISPLAY')) {
+        if ( ! parent::uninstall() ||
+            ! Configuration::deleteByName('PS_BLOCK_BESTSELLERS_TO_DISPLAY')) {
             return false;
         }
 
@@ -178,7 +178,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
 
     public function renderWidget($hookName, array $configuration)
     {
-        if (!$this->isCached($this->templateFile, $this->getCacheId('ps_bestsellers'))) {
+        if ( ! $this->isCached($this->templateFile, $this->getCacheId('ps_bestsellers'))) {
             $variables = $this->getWidgetVariables($hookName, $configuration);
 
             if (empty($variables)) {
@@ -195,7 +195,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
     {
         $products = $this->getBestSellers();
 
-        if (!empty($products)) {
+        if ( ! empty($products)) {
             return [
                 'products' => $products,
                 'allBestSellers' => Context::getContext()->link->getPageLink('best-sales'),
