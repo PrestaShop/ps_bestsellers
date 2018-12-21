@@ -132,7 +132,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
             'form' => [
                 'legend' => [
                     'title' => $this->trans('Settings', [], 'Admin.Global'),
-                    'icon' => 'icon-cogs'
+                    'icon' => 'icon-cogs',
                 ],
                 'input' => [
                     [
@@ -144,9 +144,9 @@ class Ps_BestSellers extends Module implements WidgetInterface
                     ],
                 ],
                 'submit' => [
-                    'title' => $this->trans('Save', [], 'Admin.Actions')
-                ]
-            ]
+                    'title' => $this->trans('Save', [], 'Admin.Actions'),
+                ],
+            ],
         ];
 
         $lang = new Language((int) Configuration::get('PS_LANG_DEFAULT'));
@@ -163,7 +163,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         $helper->tpl_vars = [
             'fields_value' => $this->getConfigFieldsValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id
+            'id_language' => $this->context->language->id,
         ];
 
         return $helper->generateForm([$fields_form]);
