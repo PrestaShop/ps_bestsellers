@@ -74,8 +74,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
             && $this->registerHook('actionProductUpdate')
             && $this->registerHook('actionProductDelete')
             && $this->registerHook('displayHome')
-            && ProductSale::fillProductSales()
-        ;
+            && ProductSale::fillProductSales();
     }
 
     public function uninstall()
@@ -224,8 +223,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
 
         $query
             ->setResultsPerPage($nProducts)
-            ->setPage(1)
-        ;
+            ->setPage(1);
 
         $query->setSortOrder(SortOrder::random());
 
