@@ -124,7 +124,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
             $output .= $this->displayConfirmation($this->trans('The settings have been updated.', array(), 'Admin.Notifications.Success'));
         }
 
-        return $output.$this->renderForm();
+        return $output . $this->renderForm();
     }
 
     public function renderForm()
@@ -159,7 +159,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ? Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') : 0;
         $helper->identifier = $this->identifier;
         $helper->submit_action = 'submitBestSellers';
-        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false) . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->tpl_vars = array(
             'fields_value' => $this->getConfigFieldsValues(),
