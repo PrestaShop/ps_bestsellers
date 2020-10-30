@@ -2,7 +2,7 @@
 
 ## About
 
-Adds a block displaying your store's top-selling products.
+Show your visitors what are your top-selling products directly on your homepage.
 
 ## Multistore compatibility
 

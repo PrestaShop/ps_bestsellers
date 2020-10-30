@@ -58,7 +58,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         parent::__construct();
 
         $this->displayName = $this->trans('Top-sellers block', array(), 'Modules.Bestsellers.Admin');
-        $this->description = $this->trans('Adds a block displaying your store\'s top-selling products.', array(), 'Modules.Bestsellers.Admin');
+        $this->description = $this->trans('Show your visitors what are your top-selling products directly on your homepage.', array(), 'Modules.Bestsellers.Admin');
 
         $this->templateFile = 'module:ps_bestsellers/views/templates/hook/ps_bestsellers.tpl';
     }
