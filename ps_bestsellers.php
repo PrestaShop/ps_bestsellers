@@ -70,7 +70,6 @@ class Ps_BestSellers extends Module implements WidgetInterface
         return parent::install()
             && Configuration::updateValue('PS_BLOCK_BESTSELLERS_TO_DISPLAY', 8)
             && $this->registerHook('actionOrderStatusPostUpdate')
-            && $this->registerHook('actionProductAdd')
             && $this->registerHook('actionProductUpdate')
             && $this->registerHook('actionProductDelete')
             && $this->registerHook('displayHome')
@@ -88,11 +87,6 @@ class Ps_BestSellers extends Module implements WidgetInterface
         }
 
         return true;
-    }
-
-    public function hookActionProductAdd($params)
-    {
-        $this->_clearCache('*');
     }
 
     public function hookActionProductUpdate($params)
