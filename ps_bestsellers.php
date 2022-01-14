@@ -45,6 +45,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
     public function __construct()
     {
         $this->name = 'ps_bestsellers';
+        $this->tab = 'administration';
         $this->author = 'PrestaShop';
         $this->version = '1.0.3';
         $this->need_instance = 0;
