@@ -200,6 +200,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         if (!empty($products)) {
             return [
                 'products' => $products,
+                'displayBestSellers' => (bool) Configuration::get('PS_DISPLAY_BEST_SELLERS'),
                 'allBestSellers' => Context::getContext()->link->getPageLink('best-sales'),
             ];
         }
