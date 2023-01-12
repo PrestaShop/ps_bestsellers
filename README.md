@@ -2,7 +2,14 @@
 
 ## About
 
-Adds a block displaying your store's top-selling products.
+Show your visitors what are your top-selling products directly on your homepage.
+
+## Multistore compatibility
+
+This module is compatible with the multistore :heavy_check_mark: <br/>
+It can be configured differently from one store to another.<br/>
+It can be configured quickly in the same way on all stores thanks to the all shops context or the group of shops.<br/>
+It can be activated on one store and deactivated on another
 
 ## Reporting issues
 
