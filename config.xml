@@ -2,7 +2,7 @@
 <module>
 	<name>ps_bestsellers</name>
 	<displayName><![CDATA[Top-sellers block]]></displayName>
-	<version><![CDATA[1.0.3]]></version>
+	<version><![CDATA[1.0.4]]></version>
 	<description><![CDATA[Adds a block displaying your store&#039;s top-selling products.]]></description>
 	<author><![CDATA[PrestaShop]]></author>
 	<is_configurable>1</is_configurable>
