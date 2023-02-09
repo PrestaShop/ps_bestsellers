@@ -212,22 +212,20 @@ class Ps_BestSellers extends Module implements WidgetInterface
             return false;
         }
 
+        // We will use the default core search provider to get the products
         $searchProvider = new BestSalesProductSearchProvider(
             $this->context->getTranslator()
         );
 
         $context = new ProductSearchContext($this->context);
 
+        // Build the search query
         $query = new ProductSearchQuery();
-
-        $nProducts = (int) Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY');
-
         $query
-            ->setResultsPerPage($nProducts)
+            ->setResultsPerPage((int) Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY'))
             ->setPage(1)
+            ->setSortOrder(new SortOrder('product', 'sales', 'desc'))
         ;
-
-        $query->setSortOrder(SortOrder::random());
 
         $result = $searchProvider->runQuery(
             $context,
