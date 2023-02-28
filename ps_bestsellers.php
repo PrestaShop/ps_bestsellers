@@ -29,7 +29,6 @@ use PrestaShop\PrestaShop\Adapter\Image\ImageRetriever;
 use PrestaShop\PrestaShop\Adapter\Product\PriceFormatter;
 use PrestaShop\PrestaShop\Adapter\Product\ProductColorsRetriever;
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
-use PrestaShop\PrestaShop\Core\Product\ProductListingPresenter;
 use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchContext;
 use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchQuery;
 use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
@@ -47,7 +46,7 @@ class Ps_BestSellers extends Module implements WidgetInterface
         $this->name = 'ps_bestsellers';
         $this->tab = 'front_office_features';
         $this->author = 'PrestaShop';
-        $this->version = '1.0.5';
+        $this->version = '1.0.6';
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = [
@@ -213,22 +212,20 @@ class Ps_BestSellers extends Module implements WidgetInterface
             return false;
         }
 
+        // We will use the default core search provider to get the products
         $searchProvider = new BestSalesProductSearchProvider(
             $this->context->getTranslator()
         );
 
         $context = new ProductSearchContext($this->context);
 
+        // Build the search query
         $query = new ProductSearchQuery();
-
-        $nProducts = (int) Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY');
-
         $query
-            ->setResultsPerPage($nProducts)
+            ->setResultsPerPage((int) Configuration::get('PS_BLOCK_BESTSELLERS_TO_DISPLAY'))
             ->setPage(1)
+            ->setSortOrder(new SortOrder('product', 'sales', 'desc'))
         ;
-
-        $query->setSortOrder(SortOrder::random());
 
         $result = $searchProvider->runQuery(
             $context,
@@ -239,15 +236,27 @@ class Ps_BestSellers extends Module implements WidgetInterface
 
         $presenterFactory = new ProductPresenterFactory($this->context);
         $presentationSettings = $presenterFactory->getPresentationSettings();
-        $presenter = new ProductListingPresenter(
-            new ImageRetriever(
-                $this->context->link
-            ),
-            $this->context->link,
-            new PriceFormatter(),
-            new ProductColorsRetriever(),
-            $this->context->getTranslator()
-        );
+        if (version_compare(_PS_VERSION_, '1.7.5', '>=')) {
+            $presenter = new \PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingPresenter(
+                new ImageRetriever(
+                    $this->context->link
+                ),
+                $this->context->link,
+                new PriceFormatter(),
+                new ProductColorsRetriever(),
+                $this->context->getTranslator()
+            );
+        } else {
+            $presenter = new \PrestaShop\PrestaShop\Core\Product\ProductListingPresenter(
+                new ImageRetriever(
+                    $this->context->link
+                ),
+                $this->context->link,
+                new PriceFormatter(),
+                new ProductColorsRetriever(),
+                $this->context->getTranslator()
+            );
+        }
 
         $products_for_template = [];
 
