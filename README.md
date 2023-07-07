@@ -4,6 +4,10 @@
 
 Show your visitors what are your top-selling products directly on your homepage.
 
+## Compatibility
+
+PrestaShop: `1.7.0.0` or later
+
 ## Multistore compatibility
 
 This module is compatible with the multistore :heavy_check_mark: <br/>
